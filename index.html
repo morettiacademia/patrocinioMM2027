@@ -3,37 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Magic Makers AO VIVO 2027</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Magic Makers AO VIVO · Imagine</title>
 <style>
 
-  /* ============ TOKENS ============ */
+  /* ============ TOKENS (design handoff) ============ */
   :root{
-    --bg:            #07091d;
-    --bg-mid:        #0c1136;
-    --bg-soft:       #0a0e2c;
-    --surface:       #12173f;
-    --surface-2:     #171d4c;
-    --border:        #272d63;
-    --border-soft:   #1c2150;
-    --text:          #f4f5fb;
-    --text-muted:    #9ba3d4;
-    --text-faint:    #6c73a8;
-    --blue:          #45a8ff;
-    --violet:        #9163f5;
-    --magenta:       #ef4d97;
-    --gold:          #f0b429;
-    --gold-soft:     #7a5a1c;
-    --focus:         #7db4ff;
+    --bg:      #080b23;
+    --bg-alt:  #0c1240;
+    --card:    #11163f;
+    --border:  #2a2f66;
+    --white:   #ffffff;
+    --muted:   #a9b0d6;
+    --blue:    #3aa0ff;
+    --violet:  #8b5cf6;
+    --pink:    #ec4899;
+    --off:     #454a7d;
 
-    --font-display: "Unbounded", "Segoe UI", sans-serif;
-    --font-body: "Manrope", "Segoe UI", Arial, sans-serif;
+    --grad-brand: linear-gradient(90deg,var(--blue),var(--violet),var(--pink));
+    --grad-bp:    linear-gradient(90deg,var(--blue),var(--pink));
+    --grad-bp135: linear-gradient(135deg,var(--blue),var(--pink));
+    --grad-cta:   linear-gradient(90deg,var(--violet),var(--pink));
 
-    --grad-brand: linear-gradient(92deg, var(--blue) 0%, var(--violet) 52%, var(--magenta) 100%);
-    --container: 1120px;
-    --prose: 700px;
+    --font: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --prose: 640px;
   }
 
   *{ box-sizing:border-box; }
@@ -41,696 +33,640 @@
   body{
     margin:0;
     background:var(--bg);
-    color:var(--text);
-    font-family:var(--font-body);
-    font-size:16px;
-    line-height:1.6;
+    color:var(--white);
+    font-family:var(--font);
+    line-height:1.5;
     -webkit-font-smoothing:antialiased;
   }
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
-    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
   }
-
-  h1,h2,h3{ font-family:var(--font-display); font-weight:700; text-wrap:balance; margin:0; }
-  a{ color:inherit; }
+  h1,h2,h3{ margin:0; font-weight:800; }
+  p{ margin:0; }
+  a{ color:var(--blue); text-decoration:none; }
+  a:hover{ color:var(--pink); }
   img{ max-width:100%; display:block; }
-  ::selection{ background:var(--violet); color:#fff; }
-  :focus-visible{ outline:2px solid var(--focus); outline-offset:3px; border-radius:4px; }
+  ul{ margin:0; padding:0; }
+  li{ list-style:none; }
+  :focus-visible{ outline:2px solid var(--blue); outline-offset:3px; }
 
-  .grad-text{
-    background:var(--grad-brand);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-  }
-  .eyebrow{
-    display:flex; align-items:center; gap:10px;
-    text-transform:uppercase;
-    letter-spacing:.16em;
-    font-size:12.5px;
-    font-weight:700;
-    color:var(--blue);
-    margin-bottom:16px;
-  }
-  .eyebrow::before{
-    content:"";
-    width:22px; height:2px;
-    background:var(--grad-brand);
-    flex:none;
-  }
-  .tag-pending{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    font-family:var(--font-body);
-    font-size:11.5px;
-    font-weight:700;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    color:var(--gold);
-    border:1px dashed var(--gold-soft);
-    background:rgba(240,180,41,.07);
-    padding:3px 10px 3px 8px;
-    border-radius:999px;
-    white-space:nowrap;
-  }
-  .tag-pending::before{ content:"○"; font-size:9px; }
+  .grad-text{ background:var(--grad-bp); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .grad-text-3{ background:var(--grad-brand); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .grad-text-135{ background:var(--grad-bp135); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+  .eyebrow{ text-transform:uppercase; letter-spacing:.18em; font-size:13px; font-weight:700; color:var(--blue); }
 
   .cta{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:15px 30px;
+    display:inline-block;
+    padding:14px 28px;
     border-radius:999px;
-    background:var(--grad-brand);
+    background:var(--grad-cta);
     color:#fff;
-    font-family:var(--font-body);
-    font-weight:800;
-    letter-spacing:.02em;
-    font-size:14.5px;
-    text-decoration:none;
-    box-shadow:0 12px 30px -12px rgba(145,99,245,.55);
-    transition:transform .18s ease, box-shadow .18s ease;
-  }
-  .cta:hover{ transform:translateY(-2px); box-shadow:0 16px 34px -10px rgba(145,99,245,.65); }
-  .cta.ghost{
-    background:transparent;
-    box-shadow:none;
-    border:1px solid var(--border);
-    color:var(--text);
-  }
-  .cta.ghost:hover{ border-color:var(--blue); }
-
-  .wrap{ max-width:var(--container); margin:0 auto; padding-left:min(7vw,60px); padding-right:min(7vw,60px); }
-  .prose{ max-width:var(--prose); }
-
-  /* ============ STICKY NAV ============ */
-  .topbar{
-    position:sticky; top:0; z-index:40;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:14px min(7vw,60px);
-    background:rgba(7,9,29,.72);
-    backdrop-filter:blur(14px) saturate(140%);
-    -webkit-backdrop-filter:blur(14px) saturate(140%);
-    border-bottom:1px solid var(--border-soft);
-  }
-  .topbar .brand{
-    font-family:var(--font-display);
     font-weight:700;
-    font-size:15px;
-    letter-spacing:.02em;
-  }
-  .topbar .brand span{ color:var(--text-faint); font-weight:500; }
-  .topbar .cta{ padding:10px 20px; font-size:12.5px; }
-
-  /* ============ HERO ============ */
-  .hero{
-    position:relative;
-    overflow:hidden;
-    padding:88px min(7vw,60px) 76px;
-    background:
-      radial-gradient(ellipse 900px 520px at 12% -10%, rgba(69,168,255,.24), transparent 62%),
-      radial-gradient(ellipse 800px 560px at 100% 30%, rgba(239,77,151,.18), transparent 60%),
-      linear-gradient(175deg, var(--bg) 0%, var(--bg-mid) 100%);
-  }
-  .streak{
-    position:absolute;
-    height:2px;
-    left:-10%;
-    width:120%;
-    background:linear-gradient(90deg, transparent, rgba(69,168,255,.55), rgba(145,99,245,.5), rgba(239,77,151,.45), transparent);
-    filter:blur(.5px);
-    opacity:.55;
-    animation:streak-move 7s ease-in-out infinite;
-    transform:translateX(-8%) rotate(-7deg);
-  }
-  .streak.s2{ top:26%; animation-delay:-2.1s; opacity:.35; }
-  .streak.s3{ top:64%; animation-delay:-4.4s; opacity:.25; }
-  .streak.s1{ top:8%; }
-  @keyframes streak-move{
-    0%,100%{ transform:translateX(-6%) rotate(-7deg); }
-    50%{ transform:translateX(6%) rotate(-7deg); }
-  }
-  .hero-inner{ position:relative; z-index:2; max-width:720px; }
-  .hero .datachip{
-    display:inline-flex; align-items:center; gap:9px;
-    padding:8px 16px 8px 14px;
-    border:1px solid var(--border);
-    background:rgba(18,23,63,.6);
-    border-radius:999px;
-    font-size:13px;
-    color:var(--text-muted);
-    margin:22px 0 30px;
-    font-variant-numeric:tabular-nums;
-  }
-  .hero .datachip .dot{ width:6px; height:6px; border-radius:50%; background:var(--gold); flex:none; }
-  .wordmark{
-    font-size:clamp(40px, 6.4vw, 78px);
-    font-weight:800;
-    line-height:1.02;
-    letter-spacing:-.01em;
-    margin:0;
-  }
-  .wordmark small{
-    display:block;
-    font-family:var(--font-body);
-    font-weight:700;
-    font-size:clamp(13px,1.8vw,16px);
-    letter-spacing:.32em;
-    color:var(--text-muted);
-    margin-top:14px;
+    letter-spacing:.04em;
+    font-size:14px;
     text-transform:uppercase;
+    transition:opacity .15s ease;
   }
-  .hero h1{
-    font-size:clamp(24px,3.2vw,32px);
-    font-weight:700;
-    line-height:1.3;
-    margin:28px 0 16px;
-    max-width:560px;
+  .cta:hover{ opacity:.88; color:#fff; }
+  .cta.sm{ padding:10px 20px; font-size:12px; }
+
+  .wrap{ max-width:1120px; margin:0 auto; }
+  img.cover{ width:100%; height:100%; object-fit:cover; }
+
+  /* ============ NAV ============ */
+  .topnav{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:16px 40px;
+    background:rgba(8,11,35,.88);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid #1c2158;
   }
-  .hero p.lead{
-    font-size:17px;
-    color:var(--text-muted);
-    max-width:520px;
-    line-height:1.7;
-    margin:0 0 34px;
-  }
-  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+  .topnav .logo{ width:130px; height:30px; }
+  .topnav .links{ display:flex; gap:22px; flex-wrap:wrap; }
+  .topnav .links a{ font-size:13px; font-weight:600; color:var(--muted); }
+  .topnav .links a:hover{ color:var(--white); }
+  @media (max-width:980px){ .topnav .links{ display:none; } }
 
   /* ============ SECTION SCAFFOLD ============ */
-  .section{ padding:88px min(7vw,60px); }
-  .section.on-mid{ background:var(--bg-mid); border-top:1px solid var(--border-soft); }
-  .section.on-soft{ background:var(--bg-soft); border-top:1px solid var(--border-soft); }
-  .section h2{ font-size:clamp(26px,3.4vw,36px); margin:0 0 18px; max-width:640px; }
-  .section p.body{ font-size:16px; line-height:1.8; color:var(--text-muted); max-width:var(--prose); margin:0 0 20px; }
-  .section p.body:last-of-type{ margin-bottom:0; }
-  .section-head{ margin-bottom:44px; }
+  .section{ padding:80px 60px; border-top:1px solid var(--border); }
+  .section.on-alt{ background:var(--bg-alt); }
+  .section.on-bg{ background:var(--bg); }
+  .section h2{ font-size:32px; line-height:1.25; margin:10px 0 20px; max-width:640px; }
+  .section p.body{ font-size:16px; line-height:1.75; color:var(--muted); max-width:var(--prose); margin:0 0 28px; }
+  @media (max-width:680px){ .section{ padding:64px 24px; } }
 
-  /* ============ STATS ============ */
-  .stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; max-width:760px; margin-top:36px; }
-  .stat{ background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:22px 20px; }
-  .stat .num{ font-family:var(--font-display); font-size:28px; font-weight:700; margin-bottom:6px; font-variant-numeric:tabular-nums; }
-  .stat .label{ font-size:13px; color:var(--text-muted); line-height:1.4; }
-
-  .founders{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:28px; max-width:900px; }
-  .founder{ background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 18px 20px; }
-  .founder .role{ font-size:11.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--blue); font-weight:700; margin-bottom:6px; }
-  .founder .name{ font-family:var(--font-display); font-size:16px; font-weight:600; margin-bottom:6px; }
-  .founder .desc{ font-size:13px; color:var(--text-muted); line-height:1.55; }
-
-  .note-card{
-    display:flex; gap:14px; align-items:flex-start;
-    background:rgba(240,180,41,.05);
-    border:1px dashed var(--gold-soft);
-    border-radius:14px;
-    padding:16px 18px;
-    max-width:var(--prose);
-    margin-top:28px;
-    font-size:13.5px;
-    color:var(--text-muted);
-    line-height:1.6;
+  /* ============ BEAMS (decorative) ============ */
+  .beam{
+    position:absolute;
+    width:150%; max-width:1600px; height:280px;
+    pointer-events:none;
+    background:linear-gradient(90deg,transparent,rgba(58,160,255,.16),rgba(139,92,246,.12),rgba(236,72,153,.14),transparent);
   }
-  .note-card .tag-pending{ flex:none; margin-top:1px; }
 
-  /* ============ TIMELINE TABLE ============ */
-  .table-scroll{ overflow-x:auto; margin-top:8px; }
-  table.editions{ border-collapse:collapse; width:100%; min-width:640px; font-size:14.5px; }
-  table.editions th, table.editions td{ padding:14px 18px; text-align:left; border-bottom:1px solid var(--border-soft); }
-  table.editions th{ font-family:var(--font-body); font-size:11.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-faint); font-weight:700; }
-  table.editions td.ed{ font-family:var(--font-display); font-weight:600; font-size:16px; }
-  table.editions tr.current td{ color:var(--text); }
-  table.editions tr.current td.ed{ color:var(--blue); }
-  table.editions td{ color:var(--text-muted); font-variant-numeric:tabular-nums; }
+  /* ============ CAPA ============ */
+  .capa{
+    position:relative; overflow:hidden;
+    padding:72px 60px 90px;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% 15%, rgba(58,160,255,.25), transparent 60%),
+      radial-gradient(ellipse 900px 600px at 85% 85%, rgba(236,72,153,.22), transparent 60%),
+      linear-gradient(160deg,var(--bg),var(--bg-alt));
+  }
+  .capa .beam.b1{ top:-40px; left:-260px; transform:rotate(-18deg); }
+  .capa .beam.b2{ top:340px; left:-320px; transform:rotate(-10deg); background:linear-gradient(90deg,transparent,rgba(236,72,153,.14),transparent); }
+  .capa-inner{ position:relative; z-index:2; max-width:760px; }
+  .capa .logo-imagine{ width:100%; max-width:420px; height:106px; margin:18px 0 14px; }
+  .capa .produto-adm{ display:flex; align-items:center; gap:8px; margin-bottom:24px; }
+  .capa .produto-adm img{ width:22px; height:22px; flex-shrink:0; }
+  .capa .produto-adm span{ font-size:12px; letter-spacing:.06em; color:var(--muted); text-transform:uppercase; }
+  .datachip{ display:inline-block; padding:8px 16px; border:1px solid var(--border); border-radius:999px; font-size:13px; color:var(--muted); margin:20px 0 28px; }
+  .capa h1{ font-size:42px; line-height:1.15; margin:0 0 14px; }
+  .capa p.lead{ font-size:18px; color:var(--muted); max-width:520px; line-height:1.6; margin:0 0 32px; }
+
+  /* ============ QUEM SOMOS ============ */
+  .logo-adm{ width:150px; height:auto; margin:14px 0 8px; }
+  .founders-photo{ max-width:420px; margin:8px 0 28px; }
+  .founders-photo .frame{ width:100%; height:280px; border-radius:14px; border:1px solid var(--border); overflow:hidden; }
+  .founders-photo figcaption{ font-size:12px; color:var(--muted); margin-top:8px; }
+
+  .stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:720px; }
+  .stat{ background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px 20px; }
+  .stat .num{ font-size:30px; font-weight:800; margin-bottom:4px; color:var(--pink); }
+  .stat .label{ font-size:13px; color:var(--muted); }
+  @media (max-width:680px){ .stats{ grid-template-columns:1fr; } }
+
+  /* ============ HISTORICO ============ */
+  .table-scroll{ overflow-x:auto; }
+  table.editions{ width:100%; max-width:720px; border-collapse:collapse; margin-top:8px; min-width:520px; }
+  table.editions th{ text-align:left; padding:14px 16px; font-size:11px; border-bottom:1px solid var(--border); color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+  table.editions td{ padding:14px 16px; font-size:14px; border-bottom:1px solid var(--border); }
   table.editions tr:last-child td{ border-bottom:none; }
+  table.editions td.ed{ font-weight:800; color:var(--pink); }
 
-  /* ============ BRAND GRID ============ */
-  .brandgrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:36px; max-width:900px; }
-  .brand-pill{
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:16px 16px;
-    font-family:var(--font-display);
-    font-size:13.5px;
-    font-weight:600;
-    line-height:1.35;
-    display:flex; align-items:center; min-height:64px;
+  /* ============ PATROCINADORES ============ */
+  .brandchips{ display:flex; flex-wrap:wrap; gap:12px; max-width:760px; }
+  .brandchips span{ padding:12px 20px; background:var(--card); border:1px solid var(--border); border-radius:10px; font-size:14px; font-weight:700; }
+
+  /* ============ GALERIA ============ */
+  .gal-hero{ max-width:900px; margin-bottom:14px; border-radius:14px; overflow:hidden; border:1px solid var(--border); height:340px; }
+  .gal-grid{ display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:150px; gap:14px; max-width:900px; }
+  .gal-grid .tile{ border-radius:14px; overflow:hidden; border:1px solid var(--border); }
+  .gal-grid .tile.big{ grid-column:span 2; grid-row:span 2; }
+  .gal-grid .tile.wide{ grid-column:span 2; }
+  @media (max-width:760px){
+    .gal-hero{ height:220px; }
+    .gal-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:130px; }
+    .gal-grid .tile.big{ grid-column:span 2; grid-row:span 2; }
+    .gal-grid .tile.wide{ grid-column:span 2; }
   }
 
-  /* ============ EVENT FACTS ============ */
-  .facts{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; max-width:960px; margin-top:8px; }
-  .fact{ border-left:2px solid var(--border); padding-left:16px; }
-  .fact .k{ font-size:11.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-faint); margin-bottom:8px; font-weight:700; }
-  .fact .v{ font-family:var(--font-display); font-size:18px; font-weight:600; line-height:1.35; }
+  /* ============ EVENTO FACTS ============ */
+  .facts{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; max-width:720px; margin-top:8px; }
+  .fact{ background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px; }
+  .fact .k{ font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-bottom:6px; }
+  .fact .v{ font-size:15px; font-weight:700; }
+  @media (max-width:760px){ .facts{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:460px){ .facts{ grid-template-columns:1fr; } }
 
-  .reasons{ list-style:none; margin:36px 0 0; padding:0; display:grid; gap:16px; max-width:var(--prose); }
-  .reasons li{ position:relative; padding-left:34px; font-size:15.5px; line-height:1.6; color:var(--text); }
-  .reasons li::before{
-    content:"";
-    position:absolute; left:0; top:3px;
-    width:18px; height:18px; border-radius:6px;
-    background:var(--grad-brand);
+  /* ============ POR QUE PATROCINAR ============ */
+  .pq-block{ position:relative; padding:90px 60px; overflow:hidden; border-top:1px solid var(--border); }
+  .pq-block .content{ position:relative; z-index:2; }
+  @media (max-width:680px){ .pq-block{ padding:64px 24px; } }
+
+  .pq1{ padding-top:100px; padding-bottom:90px; background:
+      radial-gradient(ellipse 900px 500px at 10% 10%, rgba(58,160,255,.22), transparent 60%),
+      radial-gradient(ellipse 800px 500px at 90% 90%, rgba(236,72,153,.18), transparent 60%); }
+  .pq1 .beam{ top:-60px; left:-300px; transform:rotate(-16deg); }
+  .pq1 .content{ max-width:820px; }
+  .pq1 h2{ font-size:44px; line-height:1.15; margin:18px 0 22px; max-width:none; }
+  .pq1 .thesis{ font-size:22px; font-weight:700; margin-bottom:24px; }
+  .pq1 p{ font-size:16px; line-height:1.8; color:var(--muted); max-width:680px; margin:0 0 24px; }
+  .pq1 .quote{ font-size:26px; font-weight:800; line-height:1.35; margin:28px 0 18px; }
+  .pq1 p.small{ max-width:640px; }
+
+  .pq2{ background:var(--bg-alt); }
+  .pq2 .beam{ top:200px; right:-360px; transform:rotate(12deg); background:linear-gradient(90deg,transparent,rgba(236,72,153,.14),rgba(139,92,246,.10),transparent); }
+  .pq2 h2{ font-size:38px; line-height:1.15; margin:0 0 20px; max-width:700px; }
+  .pq2 p{ font-size:16px; line-height:1.8; color:var(--muted); max-width:640px; margin:0 0 36px; }
+  .pill-row{ display:flex; flex-wrap:wrap; gap:14px; max-width:900px; margin-bottom:36px; }
+  .pill-row span{ padding:10px 20px; border-radius:999px; font-size:13px; font-weight:700; letter-spacing:.04em; border:1px solid rgba(58,160,255,.4); background:rgba(58,160,255,.08); }
+  .pill-row span:nth-child(3n+2){ border-color:rgba(139,92,246,.4); background:rgba(139,92,246,.08); }
+  .pill-row span:nth-child(3n){ border-color:rgba(236,72,153,.4); background:rgba(236,72,153,.08); }
+  .pq2 .punch{ font-size:24px; font-weight:800; max-width:620px; line-height:1.4; }
+
+  .pq3 .content{ text-align:center; max-width:880px; margin:0 auto; }
+  .pq3 h2.lead-sub{ font-size:26px; font-weight:700; color:var(--muted); margin:0 0 6px; max-width:none; }
+  .pq3 h2.lead-main{ font-size:40px; margin:0 0 50px; max-width:none; }
+  .pq3 .eq-row{ display:flex; align-items:center; justify-content:center; gap:18px; flex-wrap:wrap; margin-bottom:20px; }
+  .pq3 .eq-row .tag{ font-size:20px; font-weight:800; padding:16px 26px; border-radius:16px; border:1px solid var(--border); background:var(--card); }
+  .pq3 .eq-row .plus{ font-size:22px; color:var(--blue); }
+  .pq3 .eq-row .plus.pink{ color:var(--pink); }
+  .pq3 .equals{ font-size:16px; color:var(--blue); margin:22px 0 50px; }
+  .pq3 .result{ font-size:26px; font-weight:800; margin-bottom:56px; }
+  .pq3 .examples{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; max-width:820px; margin:0 auto 44px; text-align:left; }
+  .pq3 .examples div{ font-size:15px; line-height:1.7; color:var(--muted); padding:20px 22px; border-radius:14px; border:1px solid var(--border); background:var(--bg-alt); }
+  .pq3 .examples .arrow{ color:var(--blue); }
+  .pq3 .closing{ text-align:center; font-size:22px; font-weight:700; max-width:640px; margin:0 auto; line-height:1.5; }
+  @media (max-width:680px){ .pq3 .examples{ grid-template-columns:1fr; } }
+
+  .pq4{ background:var(--bg-alt); }
+  .pq4 h2{ font-size:34px; margin:0 0 44px; max-width:640px; }
+  .pillars{ display:grid; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:18px; overflow:hidden; }
+  .pillar{ display:grid; grid-template-columns:100px 1fr; background:var(--card); padding:34px 30px; gap:24px; align-items:start; }
+  .pillar .n{ font-size:44px; font-weight:800; }
+  .pillar h3{ font-size:20px; margin:0 0 10px; }
+  .pillar p{ font-size:15px; line-height:1.7; color:var(--muted); margin:0 0 12px; max-width:600px; }
+  .pillar .callout{ font-size:15px; font-weight:700; color:var(--white); }
+  @media (max-width:680px){ .pillar{ grid-template-columns:1fr; gap:8px; } .pillar .n{ font-size:34px; } }
+
+  .pq5 .grid2{ display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; max-width:1100px; }
+  .pq5 h2{ font-size:36px; line-height:1.2; margin:0 0 8px; max-width:none; }
+  .pq5 .sub{ font-size:36px; font-weight:800; margin-bottom:26px; }
+  .pq5 p{ font-size:16px; line-height:1.85; color:var(--muted); margin:0 0 20px; }
+  .pq5 .quote{ font-size:19px; font-weight:700; line-height:1.5; }
+  .pq5 .photo{ border-radius:20px; overflow:hidden; border:1px solid var(--border); height:420px; }
+  @media (max-width:860px){ .pq5 .grid2{ grid-template-columns:1fr; } .pq5 .photo{ height:280px; } }
+
+  .pq6{ background:linear-gradient(160deg,var(--bg-alt),var(--bg)); text-align:center; }
+  .pq6 .beam{ top:-40px; left:-320px; transform:rotate(-10deg); background:linear-gradient(90deg,transparent,rgba(58,160,255,.14),rgba(236,72,153,.10),transparent); }
+  .pq6 .content{ max-width:760px; margin:0 auto; }
+  .pq6 h2.lead-sub{ font-size:24px; font-weight:700; color:var(--muted); margin:0 0 6px; max-width:none; }
+  .pq6 .belong{ font-size:44px; font-weight:800; margin:0 0 32px; }
+  .pq6 p{ font-size:16px; line-height:1.8; color:var(--muted); margin:0 0 20px; }
+  .pq6 p.last{ margin-bottom:40px; }
+  .pq6 .caps{ font-size:17px; font-weight:700; color:var(--muted); margin-bottom:10px; }
+  .pq6 .words{ display:flex; justify-content:center; gap:16px; flex-wrap:wrap; font-size:28px; font-weight:800; }
+
+  .pq9{ text-align:center; overflow:hidden;
+    background:
+      radial-gradient(ellipse 1000px 600px at 20% 20%, rgba(58,160,255,.24), transparent 60%),
+      radial-gradient(ellipse 1000px 600px at 80% 80%, rgba(236,72,153,.22), transparent 60%),
+      var(--bg);
+    padding-top:120px; padding-bottom:120px;
   }
-
-  /* ============ INGRESSOS ============ */
-  table.tickets{ border-collapse:collapse; width:100%; min-width:480px; font-size:15px; }
-  table.tickets th, table.tickets td{ padding:16px 20px; text-align:left; border-bottom:1px solid var(--border-soft); }
-  table.tickets th{ font-size:11.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-faint); font-weight:700; }
-  table.tickets td.cat{ font-family:var(--font-display); font-weight:600; }
-  table.tickets td.price{ font-variant-numeric:tabular-nums; color:var(--text-muted); }
-  table.tickets tr.total td{ font-weight:800; color:var(--text); border-bottom:none; padding-top:18px; }
+  .pq9 .beam{ top:-40px; left:-360px; transform:rotate(-14deg); }
+  .pq9 .content{ max-width:760px; margin:0 auto; }
+  .pq9 .kicker{ font-size:16px; font-weight:700; color:var(--muted); letter-spacing:.04em; margin-bottom:18px; }
+  .pq9 h2{ font-size:40px; line-height:1.2; margin:0 0 34px; max-width:none; }
+  .pq9 p{ font-size:17px; color:var(--muted); line-height:1.7; margin:0 0 8px; }
+  .pq9 p.strong{ font-size:20px; font-weight:700; color:var(--white); margin:0 0 40px; }
+  .pq9 .eventline{ font-size:14px; font-weight:800; letter-spacing:.1em; color:var(--blue); margin-bottom:6px; }
+  .pq9 .eventdate{ font-size:14px; color:var(--muted); margin-bottom:36px; }
+  .pq9 .quote{ font-size:22px; font-weight:700; line-height:1.5; margin-bottom:40px; }
+  .pq9 .cta{ padding:16px 34px; font-size:15px; }
 
   /* ============ COTAS ============ */
-  .cota-wrap{
-    padding:88px min(7vw,60px) 96px;
-    background:
-      radial-gradient(ellipse 780px 420px at 85% 0%, rgba(145,99,245,.16), transparent 60%),
-      var(--bg);
-  }
-  .cotas-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; align-items:stretch; margin-top:44px; }
-  .cota-card{
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:22px;
-    padding:32px 28px;
-    position:relative;
-    overflow:hidden;
-    display:flex; flex-direction:column;
-  }
-  .cota-card::before{
-    content:""; position:absolute; top:0; left:0; right:0; height:3px;
-    background:var(--grad-brand);
-  }
-  .cota-card.featured{
-    background:var(--surface-2);
-    border-color:rgba(240,180,41,.4);
-    box-shadow:0 30px 60px -30px rgba(240,180,41,.25);
-  }
-  .cota-card.featured::before{ background:linear-gradient(92deg, var(--gold), var(--magenta)); }
-  .cota-badge{
-    display:inline-flex; align-self:flex-start;
-    font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--gold);
-    border:1px solid rgba(240,180,41,.4);
-    background:rgba(240,180,41,.08);
-    padding:5px 12px; border-radius:999px;
-    margin-bottom:18px;
-  }
-  .cota-card h3{ font-size:26px; font-weight:700; margin:0 0 4px; }
-  .cota-card .price{ font-family:var(--font-display); font-size:22px; font-weight:600; color:var(--blue); margin-bottom:6px; font-variant-numeric:tabular-nums; }
-  .cota-card .avail{ font-size:12.5px; color:var(--text-faint); margin-bottom:22px; }
-  .benef{ list-style:none; margin:0 0 26px; padding:0; display:grid; gap:11px; flex:1; }
-  .benef li{ font-size:13.8px; color:var(--text); padding-left:24px; position:relative; line-height:1.5; }
-  .benef li::before{
-    content:""; position:absolute; left:0; top:6px;
-    width:12px; height:12px; border-radius:50%;
-    background:var(--grad-brand);
-  }
-  .cota-card.featured .benef li::before{ background:linear-gradient(135deg,var(--gold),var(--magenta)); }
-  .cota-foot{ font-size:12px; color:var(--text-faint); border-top:1px solid var(--border-soft); padding-top:16px; margin-top:auto; }
+  .cotas-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:1040px; }
+  .cota-card{ background:var(--card); border:1px solid var(--border); border-radius:24px; padding:32px 28px; position:relative; overflow:hidden; }
+  .cota-card::before{ content:""; position:absolute; top:0; left:0; right:0; height:4px; background:var(--grad-brand); }
+  .cota-badge{ display:block; width:fit-content; font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--pink); border:1px solid rgba(236,72,153,.4); background:rgba(236,72,153,.08); padding:5px 12px; border-radius:999px; margin-bottom:16px; }
+  .cota-card h3{ font-size:26px; margin:0 0 4px; }
+  .cota-card .price{ font-size:36px; font-weight:800; margin-bottom:6px; }
+  .cota-card .desc{ font-size:13px; color:var(--muted); margin-bottom:20px; line-height:1.5; }
+  .cota-card .benef{ display:grid; gap:10px; }
+  .cota-card .benef li{ font-size:13.5px; padding-left:22px; position:relative; line-height:1.5; }
+  .cota-card .benef li::before{ content:""; position:absolute; left:0; top:5px; width:12px; height:12px; border-radius:50%; background:var(--grad-bp135); }
+  @media (max-width:940px){ .cotas-grid{ grid-template-columns:1fr; } }
 
   /* ============ ATIVACOES ============ */
-  table.ativ{ border-collapse:collapse; width:100%; min-width:600px; font-size:14px; }
-  table.ativ th, table.ativ td{ padding:13px 16px; border-bottom:1px solid var(--border-soft); }
-  table.ativ th{ text-align:center; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); font-weight:700; }
+  table.ativ{ width:100%; max-width:820px; border-collapse:collapse; font-size:13.5px; min-width:560px; }
+  table.ativ th{ padding:12px 14px; border-bottom:1px solid var(--border); text-align:center; color:var(--muted); text-transform:uppercase; font-size:10.5px; letter-spacing:.05em; }
   table.ativ th:first-child{ text-align:left; }
-  table.ativ td:first-child{ color:var(--text); }
-  table.ativ td{ text-align:center; color:var(--text-faint); }
-  table.ativ td.yes{ color:transparent; }
-  table.ativ td.yes::after{
-    content:"";
-    display:inline-block; width:10px; height:10px; border-radius:50%;
-    background:var(--grad-brand);
-  }
-  .ativ-notes{ display:grid; gap:14px; margin-top:28px; max-width:var(--prose); }
-  .ativ-notes p{ font-size:13.8px; color:var(--text-muted); line-height:1.6; margin:0; }
-  .ativ-notes strong{ color:var(--text); }
+  table.ativ td{ padding:12px 14px; border-bottom:1px solid var(--border); text-align:center; }
+  table.ativ td:first-child{ text-align:left; }
+  table.ativ td.yes{ color:var(--pink); font-weight:800; }
+  table.ativ td.no{ color:var(--off); }
 
-  /* ============ EXPOSITORES / PAGAMENTO ============ */
-  .info-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; max-width:960px; margin-top:8px; }
-  .info-card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:26px 26px; }
-  .info-card .k{ font-size:11.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--blue); font-weight:700; margin-bottom:10px; }
-  .info-card p{ font-size:14.5px; color:var(--text-muted); line-height:1.65; margin:0 0 10px; }
-  .info-card p:last-child{ margin-bottom:0; }
-  .info-card ul{ margin:0; padding-left:18px; font-size:14.5px; color:var(--text-muted); line-height:1.75; }
+  .ativ-gallery{ display:flex; flex-wrap:wrap; gap:16px; max-width:960px; margin-top:28px; }
+  .ativ-gallery figure{ width:210px; margin:0; }
+  .ativ-gallery .frame{ width:100%; height:150px; border-radius:12px; border:1px solid var(--border); overflow:hidden; }
+  .ativ-gallery figcaption{ font-size:12px; color:var(--muted); margin-top:8px; }
+  .ativ-notes{ font-size:16px; line-height:1.75; color:var(--muted); max-width:720px; margin-top:24px; }
+  .ativ-notes p+p{ margin-top:16px; }
 
-  /* ============ CONTATO ============ */
-  .contato{
-    position:relative; overflow:hidden;
-    padding:96px min(7vw,60px);
-    text-align:left;
-    background:
-      radial-gradient(ellipse 700px 460px at 20% 20%, rgba(69,168,255,.2), transparent 60%),
-      radial-gradient(ellipse 700px 460px at 90% 90%, rgba(239,77,151,.18), transparent 60%),
-      linear-gradient(175deg, var(--bg-mid), var(--bg));
-  }
-  .contato-inner{ position:relative; z-index:2; max-width:640px; }
-  .contato h2{ font-size:clamp(28px,3.6vw,40px); margin-bottom:16px; }
-  .contato p{ font-size:16px; color:var(--text-muted); line-height:1.75; max-width:520px; margin:0 0 32px; }
-  .contact-box{
-    display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
-    background:var(--surface);
-    border:1px dashed var(--gold-soft);
-    border-radius:16px;
-    padding:22px 26px;
-    margin-top:8px;
-  }
-  .contact-box .txt{ font-size:14.5px; color:var(--text-muted); }
-  .contact-box .txt b{ color:var(--text); font-family:var(--font-display); font-size:15px; font-weight:600; display:block; margin-bottom:4px; }
-
-  /* ============ FOOTER ============ */
-  footer{ padding:52px min(7vw,60px); background:var(--bg-mid); text-align:center; border-top:1px solid var(--border-soft); }
-  footer .fwordmark{ font-family:var(--font-display); font-size:20px; font-weight:700; }
-  footer p{ color:var(--text-faint); font-size:12.5px; margin:16px 0 0; line-height:1.6; max-width:520px; margin-left:auto; margin-right:auto; }
-
-  /* ============ RESPONSIVE ============ */
-  @media (max-width:860px){
-    .stats{ grid-template-columns:1fr 1fr; }
-    .founders{ grid-template-columns:1fr; }
-    .brandgrid{ grid-template-columns:1fr 1fr; }
-    .facts{ grid-template-columns:1fr 1fr; }
-    .cotas-grid{ grid-template-columns:1fr; }
-    .info-grid{ grid-template-columns:1fr; }
-    .topbar .cta span.long{ display:none; }
-  }
-  @media (max-width:560px){
-    .stats{ grid-template-columns:1fr; }
-    .brandgrid{ grid-template-columns:1fr; }
-    .facts{ grid-template-columns:1fr; }
-    .hero-ctas{ flex-direction:column; align-items:flex-start; }
-  }
+  /* ============ CONTATO / FOOTER ============ */
+  .contato{ position:relative; padding:64px 60px; background:var(--bg-alt); text-align:center; border-top:1px solid var(--border); overflow:hidden; }
+  .contato .beam{ top:-60px; left:-260px; transform:rotate(-14deg); }
+  .contato .content{ position:relative; z-index:2; }
+  .contato h2{ font-size:32px; margin:10px 0 20px; max-width:none; }
+  .contato p.sub{ max-width:520px; margin:0 auto; color:var(--muted); font-size:15px; line-height:1.6; }
+  .contato .cta{ margin-top:24px; padding:14px 28px; }
+  .contato .commercial{ font-size:13px; color:var(--muted); margin-top:22px; }
+  .contato .details{ display:flex; justify-content:center; gap:28px; flex-wrap:wrap; margin-top:10px; font-size:14px; color:var(--muted); }
+  .contato .details i{ font-style:normal; color:var(--text-faint,#7b82b5); }
 </style>
 </head>
 <body>
 
-  <div class="topbar">
-    <div class="brand">MAGIC MAKERS <span>AO VIVO · 2027</span></div>
-    <a class="cta" href="#contato"><span class="long">Falar com a organização</span><span>Patrocinar</span></a>
-  </div>
+  <!-- ===== NAV ===== -->
+  <nav class="topnav">
+    <div class="logo"><img class="cover" src="assets/logo-imagine.png" alt="Imagine — Magic Makers AO VIVO 2027"></div>
+    <div class="links">
+      <a href="#quem-somos">Quem somos</a>
+      <a href="#historico">Histórico</a>
+      <a href="#evento">O evento</a>
+      <a href="#por-que-patrocinar">Por que patrocinar</a>
+      <a href="#cotas">Cotas</a>
+      <a href="#ativacoes">Ativações</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <a class="cta sm" href="https://wa.me/5511965183613" target="_blank" rel="noopener">Falar no WhatsApp</a>
+  </nav>
 
   <!-- ===== CAPA ===== -->
-  <section class="hero">
-    <div class="streak s1"></div>
-    <div class="streak s2"></div>
-    <div class="streak s3"></div>
-    <div class="hero-inner">
+  <section class="capa">
+    <div class="beam b1"></div>
+    <div class="beam b2"></div>
+    <div class="capa-inner">
       <div class="eyebrow">Book de patrocínio</div>
-      <h1 class="wordmark">MAGIC <span class="grad-text">MAKERS</span><small>AO VIVO — Edição Speed 2027</small></h1>
-      <div class="datachip"><span class="dot"></span>15 e 16 de maio de 2027 · Apogeo Nobre</div>
-      <h1 style="margin:0 0 16px;">O maior encontro do mercado de agentes de Orlando entra na velocidade máxima.</h1>
-      <p class="lead">300 agentes de viagens especializados em Orlando, 2 dias completos de imersão, 5ª edição — e sua marca no centro dessa conversa.</p>
-      <div class="hero-ctas">
-        <a class="cta" href="#contato">Quero patrocinar</a>
-        <a class="cta ghost" href="#cotas">Ver as cotas</a>
+      <div class="logo-imagine"><img class="cover" src="assets/logo-imagine.png" alt="Imagine — wordmark do evento"></div>
+      <div class="produto-adm">
+        <img src="assets/logo-adm.png" alt="">
+        <span>Um produto da Academia da Magia</span>
       </div>
+      <span class="datachip">15 e 16 de maio de 2027 · Alphaville Apogeu Nobre, SP</span>
+      <h1>O maior encontro do mercado<br>de agentes de Orlando.</h1>
+      <p class="lead">300 agentes de viagens especializados em Orlando, 2 dias de imersão, 5ª edição, e sua marca no centro dessa conversa.</p>
+      <a class="cta" href="#cotas">Ver cotas de patrocínio</a>
     </div>
   </section>
 
-  <!-- ===== ACADEMIA DA MAGIA ===== -->
-  <section class="section" id="academia">
-    <div class="section-head">
-      <div class="eyebrow">Quem está por trás</div>
-      <h2>Academia da Magia</h2>
-    </div>
-    <p class="body">Fundada em 2019 por <strong style="color:var(--text)">Joice Ferreira</strong>, a Academia da Magia nasceu com o propósito de especializar profissionais do turismo focados em Orlando. Hoje conta com mais de 2.000 alunos espalhados pelo mundo, formados nos cursos e imersões da casa.</p>
-    <p class="body">O time reúne especialistas com ampla experiência prática no mercado de Orlando — muitos deles ex-alunos que hoje têm suas próprias agências de viagem especializadas no destino. Além do Magic Makers AO VIVO, a Academia da Magia forma agentes e guias através de programas como Guiamento Virtual, Guias de Orlando, Creations e imersões presenciais, construindo uma comunidade sólida e engajada de profissionais que vivem de vender e guiar Orlando.</p>
-
-    <div class="founders">
-      <div class="founder">
-        <div class="role">Fundadora</div>
-        <div class="name">Joice Ferreira</div>
-        <div class="desc">Idealizadora da Academia da Magia e da comunidade de agentes especializados em Orlando.</div>
-      </div>
-      <div class="founder">
-        <div class="role">Sócio</div>
-        <div class="name">Paulo Soares</div>
-        <div class="desc">Co-fundador, responsável pela gestão financeira da operação.</div>
-      </div>
-      <div class="founder">
-        <div class="role">Sócia</div>
-        <div class="name">Camila Moretti</div>
-        <div class="desc">Diretora de Marketing, Eventos e Vendas.</div>
-      </div>
-    </div>
-
+  <!-- ===== QUEM SOMOS ===== -->
+  <section class="section on-alt" id="quem-somos">
+    <div class="eyebrow">Quem está por trás</div>
+    <img class="logo-adm" src="assets/logo-adm.png" alt="Academia da Magia">
+    <h2>Academia da Magia</h2>
+    <p class="body">Fundada em 2020 por Joice Ferreira, a Academia da Magia nasceu com o propósito de especializar profissionais do turismo focados em Orlando. Hoje conta com mais de 2.200 alunos espalhados pelo mundo, formados nos cursos e imersões da casa.</p>
+    <p class="body">À frente do negócio, além de Joice (fundadora), estão os sócios Paulo Soares (co-fundador, responsável pela gestão financeira) e Camila Moretti (sócia e diretora de Marketing, Eventos e Vendas). O time reúne especialistas com ampla experiência prática no mercado de Orlando, muitos deles ex-alunos que hoje têm suas próprias agências de viagem especializadas no destino.</p>
+    <figure class="founders-photo">
+      <div class="frame"><img class="cover" src="assets/foto-socios.jpg" alt="Paulo Soares, Joice Ferreira e Camila Moretti no backdrop do Magic Makers AO VIVO"></div>
+      <figcaption>Paulo Soares, Joice Ferreira e Camila Moretti, sócios da Academia da Magia</figcaption>
+    </figure>
+    <p class="body">Além do Magic Makers AO VIVO, a Academia da Magia forma agentes e guias através de programas como Guiamento Virtual, Guias de Orlando, Creations e imersões presenciais, construindo, ano após ano, uma comunidade sólida e engajada de profissionais que vivem de vender e guiar Orlando.</p>
     <div class="stats">
-      <div class="stat"><div class="num grad-text">2.000+</div><div class="label">Alunos formados desde 2019</div></div>
-      <div class="stat"><div class="num grad-text">5ª</div><div class="label">Edição do Magic Makers AO VIVO</div></div>
-      <div class="stat"><div class="num grad-text">11</div><div class="label">Marcas patrocinadoras em 2025</div></div>
-    </div>
-
-    <div class="note-card">
-      <span class="tag-pending">A completar</span>
-      <span>Espaço reservado para dados adicionais de alcance — seguidores nas redes sociais, faturamento agregado da comunidade de agências, ou outro número que a Academia da Magia queira destacar.</span>
+      <div class="stat"><div class="num">2.200+</div><div class="label">Alunos formados</div></div>
+      <div class="stat"><div class="num">5 anos</div><div class="label">De mercado</div></div>
+      <div class="stat"><div class="num">5ª</div><div class="label">Edição do AO VIVO</div></div>
     </div>
   </section>
 
-  <!-- ===== 5ª EDIÇÃO ===== -->
-  <section class="section on-mid" id="historico">
-    <div class="section-head">
-      <div class="eyebrow">Histórico</div>
-      <h2>5ª edição do Magic Makers AO VIVO</h2>
-      <p class="body">O Magic Makers AO VIVO chega em 2027 na sua 5ª edição — um histórico consolidado de reunir o mercado de agentes especializados em Orlando.</p>
-    </div>
-
+  <!-- ===== HISTORICO ===== -->
+  <section class="section on-bg" id="historico">
+    <div class="eyebrow">Histórico</div>
+    <h2>5ª edição do Magic Makers AO VIVO</h2>
+    <p class="body">O Magic Makers AO VIVO chega em 2027 na sua 5ª edição, um histórico consolidado de reunir o mercado de agentes especializados em Orlando.</p>
     <div class="table-scroll">
       <table class="editions">
-        <thead>
-          <tr><th>Edição</th><th>Ano</th><th>Participantes</th><th>Observação</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="ed">1ª</td><td colspan="3"><span class="tag-pending">Dado a confirmar</span></td></tr>
-          <tr><td class="ed">2ª</td><td colspan="3"><span class="tag-pending">Dado a confirmar</span></td></tr>
-          <tr><td class="ed">3ª</td><td colspan="3"><span class="tag-pending">Dado a confirmar</span></td></tr>
-          <tr><td class="ed">4ª</td><td>2025</td><td>190 pagantes (meta de 250)</td><td>Formato de 1 dia + coquetel na véspera</td></tr>
-          <tr class="current"><td class="ed">5ª</td><td>2027</td><td>300 (meta)</td><td>Novo formato: 2 dias completos</td></tr>
-        </tbody>
+        <tr><th>Edição</th><th>Ano</th><th>Tema</th><th>Participantes</th></tr>
+        <tr><td class="ed">1ª</td><td>2020</td><td>AO VIVO</td><td>150 participantes</td></tr>
+        <tr><td class="ed">2ª</td><td>2021</td><td>Reloaded</td><td>200 participantes</td></tr>
+        <tr><td class="ed">3ª</td><td>2024</td><td>Fire</td><td>250 participantes</td></tr>
+        <tr><td class="ed">4ª</td><td>2025</td><td>Rocket</td><td>300 participantes</td></tr>
+        <tr><td class="ed">5ª</td><td>2027</td><td>Imagine</td><td>300 participantes (meta), novo formato de 2 dias completos</td></tr>
       </table>
-    </div>
-
-    <div class="note-card">
-      <span class="tag-pending">A confirmar</span>
-      <span>Numeração das edições e dados completos de 2019–2023 em revisão — os números de 2025 têm origem na planilha de custos e vendas realizados daquele ano.</span>
-    </div>
-
-    <div class="section-head" style="margin-top:64px;">
-      <div class="eyebrow">Prova social</div>
-      <h2 style="font-size:24px;">Marcas que já confiaram no Magic Makers</h2>
-      <p class="body" style="margin-bottom:0;">Em 2025, o Magic Makers AO VIVO reuniu 11 patrocinadores confirmados, entre eles grandes nomes do turismo em Orlando:</p>
-    </div>
-    <div class="brandgrid">
-      <div class="brand-pill">Universal Destinations &amp; Experiences</div>
-      <div class="brand-pill">United Parks and Resorts</div>
-      <div class="brand-pill">Visit Orlando</div>
-      <div class="brand-pill">Visit Florida</div>
-      <div class="brand-pill">Experience Kissimmee</div>
-      <div class="brand-pill">Visit Saint Pete &amp; Clearwater</div>
-      <div class="brand-pill">Hero Seguradora</div>
-      <div class="brand-pill">Hotel Do</div>
-      <div class="brand-pill">Simpremium</div>
-      <div class="brand-pill">Magic Blue Turismo</div>
-      <div class="brand-pill">SG Rentals</div>
-    </div>
-    <div class="note-card">
-      <span class="tag-pending">A completar</span>
-      <span>Logos em alta resolução reforçam a credibilidade do material — confirmar autorização de uso da marca com cada patrocinador antes de publicar.</span>
     </div>
   </section>
 
-  <!-- ===== SOBRE O EVENTO ===== -->
-  <section class="section" id="evento">
-    <div class="section-head">
-      <div class="eyebrow">O evento</div>
-      <h2>2 dias, tema Speed, 300 agentes de Orlando</h2>
-      <p class="body">O Magic Makers AO VIVO é o encontro anual da Academia da Magia com agentes de viagens especializados no mercado de Orlando. Em 2027, o evento ganha um novo formato: dois dias inteiros de imersão, conteúdo e conexão, com o tema Speed — inspirado na velocidade dos parques e das experiências de Orlando.</p>
+  <!-- ===== PATROCINADORES ===== -->
+  <section class="section on-alt" id="patrocinadores">
+    <div class="eyebrow">Prova social</div>
+    <h2>Marcas que já confiaram no Magic Makers</h2>
+    <p class="body">Em 2025, o Magic Makers AO VIVO reuniu 11 patrocinadores confirmados, entre eles grandes nomes do turismo em Orlando:</p>
+    <div class="brandchips">
+      <span>Universal Destinations &amp; Experiences</span>
+      <span>United Parks and Resorts</span>
+      <span>Visit Orlando</span>
+      <span>Visit Florida</span>
+      <span>Experience Kissimmee</span>
+      <span>Visit Saint Pete &amp; Clearwater</span>
+      <span>Hero Seguradora</span>
+      <span>Hotel Do</span>
+      <span>Simpremium</span>
+      <span>Magic Blue Turismo</span>
+      <span>SG Rentals</span>
     </div>
+  </section>
+
+  <!-- ===== GALERIA ===== -->
+  <section class="section on-bg" id="galeria">
+    <div class="eyebrow">Registro</div>
+    <h2>Como foram as últimas edições</h2>
+    <div class="gal-hero"><img class="cover" src="assets/foto-fire-certificados.jpg" alt="Plateia com certificados, edição Fire, telão 'Conexão Universal'"></div>
+    <div class="gal-grid">
+      <div class="tile big"><img class="cover" src="assets/foto-plateia-comemoracao.jpg" alt="Plateia comemorando com bastões infláveis"></div>
+      <div class="tile wide"><img class="cover" src="assets/foto-sacola-discovery.jpg" alt="Participante com sacola personalizada Discovery Cove, backdrop 'Eu sou Magic Maker'"></div>
+      <div class="tile wide"><img class="cover" src="assets/foto-deixe-marca.jpg" alt="Equipe AdM e convidados no backdrop 'Deixe sua marca no universo', edição Rocket"></div>
+      <div class="tile big"><img class="cover" src="assets/foto-palco-rocket.jpg" alt="Palco da edição Rocket, telões Academia da Magia e apresentador no centro"></div>
+      <div class="tile wide"><img class="cover" src="assets/foto-baloes.jpg" alt="Plateia comemorando com balões prateados subindo ao teto"></div>
+      <div class="tile wide"><img class="cover" src="assets/foto-plateia-ampla.jpg" alt="Vista ampla do auditório lotado durante uma palestra"></div>
+    </div>
+  </section>
+
+  <!-- ===== EVENTO ===== -->
+  <section class="section on-bg" id="evento">
+    <div class="eyebrow">O evento</div>
+    <h2>Sobre o Magic Makers AO VIVO</h2>
+    <p class="body">O Magic Makers AO VIVO é o encontro anual da Academia da Magia com agentes de viagens especializados no mercado de Orlando. Em 2027, o evento ganha um novo formato: 2 dias inteiros de imersão, conteúdo e conexão, com o tema Speed, inspirado na velocidade dos parques e das experiências de Orlando.</p>
     <div class="facts">
-      <div class="fact"><div class="k">Data</div><div class="v">15–16 mai 2027</div></div>
-      <div class="fact"><div class="k">Local</div><div class="v">Apogeo Nobre</div></div>
-      <div class="fact"><div class="k">Formato</div><div class="v">2 dias de evento</div></div>
-      <div class="fact"><div class="k">Público</div><div class="v">300 agentes</div></div>
+      <div class="fact"><div class="k">Data</div><div class="v">15-16 mai 2027 (sáb e dom)</div></div>
+      <div class="fact"><div class="k">Local</div><div class="v">Alphaville Apogeu Nobre, SP</div></div>
+      <div class="fact"><div class="k">Formato</div><div class="v">2 dias</div></div>
+      <div class="fact"><div class="k">Público</div><div class="v">300 agentes especialistas em Orlando</div></div>
     </div>
   </section>
 
   <!-- ===== POR QUE PATROCINAR ===== -->
-  <section class="section on-mid">
-    <div class="section-head">
-      <div class="eyebrow">O argumento</div>
-      <h2>Por que patrocinar o Magic Makers</h2>
-      <p class="body">Não é sobre alcançar o maior número de agentes de turismo do Brasil — é sobre alcançar os certos. Todo participante já vende ou quer vender Orlando. Isso significa conversas de patrocínio muito mais diretas: sua marca não compete por atenção genérica, está na frente de quem já decidiu que aquele é o destino que vende.</p>
-    </div>
-    <ul class="reasons">
-      <li>300 agentes de viagens, 100% focados no mercado de Orlando</li>
-      <li>2 dias de imersão total — não é um evento de passagem</li>
-      <li>Programação construída para gerar resultado real, não só networking</li>
-      <li>5ª edição — um evento com histórico, não uma aposta de primeira viagem</li>
-    </ul>
-  </section>
+  <section id="por-que-patrocinar">
 
-  <!-- ===== INGRESSOS ===== -->
-  <section class="section" id="ingressos">
-    <div class="section-head">
-      <div class="eyebrow">Alcance de cada cota</div>
-      <h2>Os ingressos</h2>
-      <p class="body">Para dimensionar a visibilidade da sua marca diante do público do evento.</p>
+    <div class="pq-block pq1">
+      <div class="beam"></div>
+      <div class="content">
+        <div class="eyebrow" style="margin-bottom:18px;">Por que sua marca deve estar aqui</div>
+        <h2>Por que sua marca deve estar no<br>Magic Makers AO VIVO · Imagine?</h2>
+        <div class="thesis">Porque este não é apenas mais um evento do mercado de turismo.</div>
+        <p>Existem muitos eventos onde profissionais do turismo circulam por corredores, visitam estandes, recebem materiais, conhecem fornecedores e seguem para o próximo compromisso. O Magic Makers AO VIVO foi construído a partir de outra lógica: aqui, marcas não encontram apenas profissionais do turismo. Encontram uma comunidade que vive Orlando, estuda Orlando, vende Orlando, fala sobre Orlando e influencia diariamente as decisões de famílias que sonham em viajar para esse destino.</p>
+        <div class="quote grad-text">"Eles não são apenas agentes de viagens.<br>Eles também são fãs."</div>
+        <p class="small">E quando conhecimento profissional encontra conexão emocional, a relação entre público e marca ganha outra dimensão.</p>
+      </div>
     </div>
-    <div class="table-scroll">
-      <table class="tickets">
-        <thead><tr><th>Categoria</th><th>Vagas</th><th>Preço</th></tr></thead>
-        <tbody>
-          <tr><td class="cat">IMAGINE</td><td>60</td><td class="price">R$ 2.500</td></tr>
-          <tr><td class="cat">INSPIRE</td><td>80</td><td class="price">R$ 1.750</td></tr>
-          <tr><td class="cat">SPARK</td><td>160</td><td class="price">R$ 900</td></tr>
-          <tr class="total"><td>Total</td><td>300</td><td></td></tr>
-        </tbody>
-      </table>
+
+    <div class="pq-block pq2">
+      <div class="beam"></div>
+      <div class="content">
+        <h2>Não é uma feira.<br>É uma experiência imersiva.</h2>
+        <p>No Magic Makers AO VIVO, o participante não passa alguns minutos diante da sua marca e vai embora. Ele passa dois dias imerso em um ambiente de conteúdo, relacionamento, experiências e comunidade.</p>
+        <div class="pill-row">
+          <span>PALCO</span><span>CONTEÚDO</span><span>CAFÉ</span><span>ALMOÇO</span><span>NETWORKING</span>
+          <span>LOUNGE</span><span>HAPPY HOUR</span><span>TECNOLOGIA</span><span>EXPERIÊNCIAS</span><span>SURPRESAS</span>
+        </div>
+        <div class="punch">"Em vez de disputar alguns segundos de atenção, sua marca passa a fazer parte da experiência."</div>
+      </div>
     </div>
+
+    <div class="pq-block pq3">
+      <div class="content">
+        <h2 class="lead-sub">Um público que não apenas gosta de Orlando.</h2>
+        <h2 class="lead-main">Um público que transforma Orlando em negócio.</h2>
+        <div class="eq-row">
+          <span class="tag">FÃ</span>
+          <span class="plus">+</span>
+          <span class="tag">PROFISSIONAL</span>
+          <span class="plus pink">+</span>
+          <span class="tag">INFLUENCIADOR<br>DA COMPRA</span>
+        </div>
+        <div class="equals">=</div>
+        <div class="result grad-text-3">Um público extraordinariamente estratégico para as marcas</div>
+      </div>
+      <div class="examples">
+        <div>Ele pode viver uma atração como consumidor <span class="arrow">→</span> e depois recomendá-la aos clientes.</div>
+        <div>Pode se encantar com um hotel <span class="arrow">→</span> e depois incluí-lo em seus roteiros.</div>
+        <div>Pode conhecer melhor um produto <span class="arrow">→</span> e voltar para sua agência sabendo como vendê-lo.</div>
+        <div>Pode viver uma experiência da sua marca <span class="arrow">→</span> e transformá-la em conteúdo para sua audiência.</div>
+      </div>
+      <div class="closing">"É uma audiência que vive a experiência de um lado e influencia a decisão de compra do outro."</div>
+    </div>
+
+    <div class="pq-block pq4">
+      <h2>O que torna o Magic Makers diferente?</h2>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="n grad-text-135">01</div>
+          <div>
+            <h3>Conexão emocional</h3>
+            <p>Você não estará diante apenas de compradores B2B. Estará diante de profissionais que possuem uma relação genuína com o universo que vendem.</p>
+            <div class="callout">"Eles vendem aquilo que também amam viver."</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="n grad-text-135">02</div>
+          <div>
+            <h3>Especialização em Orlando</h3>
+            <p style="margin-bottom:0;">Uma comunidade profundamente conectada ao destino e aos negócios construídos em torno dele. Isso permite às marcas uma comunicação muito mais contextualizada do que em encontros generalistas do turismo.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="n grad-text-135">03</div>
+          <div>
+            <h3>Comunidade, não apenas audiência</h3>
+            <p style="margin-bottom:0;">O relacionamento não nasce quando as portas do evento abrem e não precisa terminar quando elas fecham. O Magic Makers faz parte de um ecossistema de formação, relacionamento e desenvolvimento profissional construído pela Academia da Magia.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="n grad-text-135">04</div>
+          <div>
+            <h3>Experiência, não apenas exposição</h3>
+            <p>Não queremos simplesmente encontrar um espaço para colocar o logotipo de uma marca.</p>
+            <div class="callout">"O que a sua marca pode tornar possível para quem participa do Imagine?"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pq-block pq5">
+      <div class="grid2">
+        <div>
+          <h2>Sua marca não precisa ser<br>apenas vista.</h2>
+          <div class="sub grad-text">Ela pode ser vivida.</div>
+          <p>Imagine um agente de viagens conhecendo sua marca em um estande. Agora imagine esse mesmo profissional vivendo uma experiência proporcionada por ela.</p>
+          <p>Fotografando. Compartilhando. Conversando sobre ela. Conhecendo melhor seus produtos. Criando relacionamento com sua equipe. E voltando para sua agência com uma história para contar aos próprios clientes.</p>
+          <div class="quote">"Existe uma diferença enorme entre exposição e experiência.<br>No Magic Makers AO VIVO, queremos construir a segunda."</div>
+        </div>
+        <div class="photo"><img class="cover" src="assets/foto-deixe-marca.jpg" alt="Momento de conexão com a marca no evento"></div>
+      </div>
+    </div>
+
+    <div class="pq-block pq6">
+      <div class="beam"></div>
+      <div class="content">
+        <h2 class="lead-sub">Existe algo que dinheiro de mídia, sozinho, não compra:</h2>
+        <div class="belong">Pertencimento.</div>
+        <p>Algumas marcas patrocinam eventos para serem vistas. No Magic Makers AO VIVO, queremos parceiros que desejem fazer parte da comunidade que está ajudando a construir o futuro da venda de Orlando no Brasil.</p>
+        <p class="last">Estar presente significa estar próximo de profissionais que estudam o destino, produzem conteúdo sobre ele, viajam para ele, recomendam experiências e ajudam seus clientes a transformar sonhos em viagens.</p>
+        <div class="caps">NÃO QUEREMOS CRIAR APENAS LEMBRANÇA DE MARCA.</div>
+        <div class="words">
+          <span class="grad-text" style="background:linear-gradient(90deg,var(--blue),var(--violet));-webkit-background-clip:text;background-clip:text;">AFINIDADE.</span>
+          <span class="grad-text" style="background:linear-gradient(90deg,var(--violet),var(--pink));-webkit-background-clip:text;background-clip:text;">CONFIANÇA.</span>
+          <span class="grad-text" style="background:linear-gradient(90deg,var(--pink),var(--blue));-webkit-background-clip:text;background-clip:text;">PREFERÊNCIA.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pq-block pq9">
+      <div class="beam"></div>
+      <div class="content">
+        <div class="kicker">Não patrocine apenas mais um evento.</div>
+        <h2>Faça parte de uma comunidade que vive, ama e vende Orlando.</h2>
+        <p>Sua marca pode estar onde agentes de viagens se encontram.</p>
+        <p class="strong">Ou sua marca pode estar onde eles se transformam.</p>
+        <div class="eventline">MAGIC MAKERS AO VIVO 2027 · IMAGINE</div>
+        <div class="eventdate">15 e 16 de maio de 2027</div>
+        <div class="quote">"Sua marca pode assistir ao futuro do turismo acontecer.<br>Ou pode ajudar a construí-lo."</div>
+        <a class="cta" href="#cotas">Quero fazer parte do Imagine</a>
+      </div>
+    </div>
+
   </section>
 
   <!-- ===== COTAS ===== -->
-  <section class="cota-wrap" id="cotas">
-    <div class="eyebrow">Investimento</div>
-    <h2 style="font-size:clamp(26px,3.4vw,36px); max-width:640px;">As cotas de patrocínio</h2>
-    <p class="body" style="margin-top:16px;">Três formas de estar presente — do protagonismo total no palco à porta de entrada para o maior encontro do mercado de Orlando.</p>
-
+  <section class="section on-alt" id="cotas">
+    <div class="eyebrow">As cotas</div>
+    <h2>Escolha o nível de presença da sua marca</h2>
     <div class="cotas-grid">
-      <div class="cota-card featured">
-        <span class="cota-badge">Apenas 5 cotas</span>
+
+      <div class="cota-card">
+        <span class="cota-badge">5 cotas</span>
         <h3>Signature</h3>
-        <div class="price">US$ 6.000</div>
-        <div class="avail">A cota máxima. Protagonismo total no evento.</div>
+        <div class="price grad-text">US$ 6.000</div>
+        <div class="desc">A cota máxima. Protagonismo total no evento.</div>
         <ul class="benef">
-          <li>Palestra solo de 30 minutos no palco principal</li>
-          <li>Estande físico exclusivo no espaço do evento</li>
-          <li>Totem próprio e área VIP com identidade da marca</li>
-          <li>1 ativação — menu completo (inclui Fondue Premium e Pipoca Gourmet)</li>
-          <li>Happy Hour exclusivo no encerramento do dia 1</li>
-          <li>Almoço para até 3 pessoas da equipe (2 dias)</li>
-          <li>Mailing completo dos participantes</li>
-          <li>8 convites (equipe + clientes)</li>
-          <li>Placa de reconhecimento Fast Pass Award</li>
-          <li>Logo no telão, site e crachá + menção nas redes sociais</li>
-          <li>Participação no sorteio de brindes</li>
-          <li>Material/brinde na sacola de todos os participantes</li>
-          <li>Mesa de apoio no espaço do evento</li>
+          <li>Palestra solo de 30 min no palco principal</li>
+          <li>Estande físico exclusivo</li>
+          <li>Totem com a marca</li>
+          <li>Área VIP com a marca</li>
+          <li>1 ativação, menu completo</li>
+          <li>Happy Hour para até 3 pessoas (1 dia)</li>
+          <li>Almoço para até 3 pessoas (2 dias)</li>
+          <li>Mailing completo</li>
+          <li>8 convites para o evento</li>
+          <li>Marca presente em todos os materiais de comunicação do evento</li>
         </ul>
-        <div class="cota-foot">Apenas 5 cotas disponíveis</div>
       </div>
 
       <div class="cota-card">
-        <span class="cota-badge">Apenas 4 cotas</span>
+        <span class="cota-badge">4 cotas</span>
         <h3>Premier</h3>
-        <div class="price">US$ 3.500</div>
-        <div class="avail">Presença de palco e destaque de marca, com investimento intermediário.</div>
+        <div class="price grad-text">US$ 3.500</div>
+        <div class="desc">Presença de palco e destaque de marca.</div>
         <ul class="benef">
-          <li>Painel de 30 minutos no palco principal (compartilhado, até 3 patrocinadores)</li>
-          <li>1 ativação — menu selecionado</li>
-          <li>Happy Hour exclusivo no encerramento do dia 1</li>
-          <li>Almoço para 2 pessoas da equipe (2 dias)</li>
-          <li>Mailing segmentado dos participantes</li>
-          <li>6 convites (equipe + clientes)</li>
-          <li>Placa de reconhecimento Fast Pass Award</li>
-          <li>Logo no telão, site e crachá + menção nas redes sociais</li>
-          <li>Participação no sorteio de brindes</li>
-          <li>Material/brinde na sacola de todos os participantes</li>
-          <li>Mesa de apoio no espaço do evento</li>
+          <li>Painel de 30 min (compartilhado, até 3 marcas)</li>
+          <li>1 ativação, menu selecionado</li>
+          <li>Happy Hour para 2 pessoas (1 dia)</li>
+          <li>Almoço para 2 pessoas (2 dias)</li>
+          <li>Mailing completo</li>
+          <li>6 convites para o evento</li>
+          <li>Totem com a marca</li>
+          <li>Marca presente em todos os materiais de comunicação do evento</li>
         </ul>
-        <div class="cota-foot">Apenas 4 cotas disponíveis</div>
       </div>
 
       <div class="cota-card">
-        <span class="cota-badge">Apenas 3 cotas</span>
+        <span class="cota-badge">3 cotas</span>
         <h3>Select</h3>
-        <div class="price">US$ 2.000</div>
-        <div class="avail">A porta de entrada para fazer parte do maior encontro do mercado de Orlando.</div>
+        <div class="price grad-text">US$ 2.000</div>
+        <div class="desc">A porta de entrada para o maior encontro do mercado de Orlando.</div>
         <ul class="benef">
-          <li>1 ativação — menu reduzido</li>
-          <li>Happy Hour exclusivo no encerramento do dia 1</li>
-          <li>Almoço para 1 pessoa da equipe (2 dias)</li>
-          <li>Mailing geral dos participantes</li>
-          <li>3 convites (equipe + cliente)</li>
-          <li>Placa de reconhecimento Fast Pass Award</li>
-          <li>Logo no telão, site e crachá + menção nas redes sociais</li>
-          <li>Participação no sorteio de brindes</li>
-          <li>Material/brinde na sacola de todos os participantes</li>
-          <li>Mesa de apoio no espaço do evento</li>
+          <li>1 ativação, menu reduzido</li>
+          <li>Happy Hour para 1 pessoa (1 dia)</li>
+          <li>Almoço para 1 pessoa (2 dias)</li>
+          <li>Mailing completo</li>
+          <li>3 convites para o evento</li>
+          <li>Totem com a marca</li>
+          <li>Marca presente em todos os materiais de comunicação do evento</li>
         </ul>
-        <div class="cota-foot">Apenas 3 cotas disponíveis</div>
       </div>
+
     </div>
   </section>
 
-  <!-- ===== MENU DE ATIVAÇÕES ===== -->
-  <section class="section on-mid" id="ativacoes">
-    <div class="section-head">
-      <div class="eyebrow">Personalização</div>
-      <h2>Menu de ativações</h2>
-      <p class="body">Cada cota escolhe 1 ativação — o menu disponível varia conforme a cota.</p>
-    </div>
+  <!-- ===== ATIVACOES ===== -->
+  <section class="section on-bg" id="ativacoes">
+    <div class="eyebrow">Ativações</div>
+    <h2>Menu de ativações</h2>
+    <p class="body">Cada cota escolhe 1 ativação, o menu disponível varia conforme a cota.</p>
     <div class="table-scroll">
       <table class="ativ">
-        <thead>
-          <tr><th>Ativação</th><th>Signature</th><th>Premier</th><th>Select</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Carrinho de Fondue Premium personalizado</td><td class="yes"></td><td>—</td><td>—</td></tr>
-          <tr><td>Carrinho de Pipoca Gourmet personalizado</td><td class="yes"></td><td>—</td><td>—</td></tr>
-          <tr><td>Carrinho de Brigadeiro Gourmet personalizado</td><td class="yes"></td><td class="yes"></td><td>—</td></tr>
-          <tr><td>Carrinho de Picolé Artesanal personalizado</td><td class="yes"></td><td class="yes"></td><td>—</td></tr>
-          <tr><td>Cantinho de fotos personalizado</td><td class="yes"></td><td class="yes"></td><td>—</td></tr>
-          <tr><td>Estação de recarga de celular com a marca</td><td class="yes"></td><td class="yes"></td><td>—</td></tr>
-          <tr><td>Brinde personalizado na entrada</td><td class="yes"></td><td class="yes"></td><td class="yes"></td></tr>
-          <tr><td>Capa de cadeira personalizada com a marca</td><td class="yes"></td><td class="yes"></td><td class="yes"></td></tr>
-          <tr><td>Naming do coffee break de um dos dias</td><td class="yes"></td><td class="yes"></td><td class="yes"></td></tr>
-          <tr><td>Almoço patrocinado (naming em um dos dias)</td><td class="yes"></td><td class="yes"></td><td class="yes"></td></tr>
-        </tbody>
+        <tr><th>Ativação</th><th>Signature</th><th>Premier</th><th>Select</th></tr>
+        <tr><td>Carrinho de Fondue Premium personalizado</td><td class="yes">✓</td><td class="no">×</td><td class="no">×</td></tr>
+        <tr><td>Estação de café personalizada</td><td class="yes">✓</td><td class="no">×</td><td class="no">×</td></tr>
+        <tr><td>Almoço patrocinado, com fala no palco</td><td class="yes">✓</td><td class="no">×</td><td class="no">×</td></tr>
+        <tr><td>Carrinho de Brigadeiro Gourmet personalizado</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">×</td></tr>
+        <tr><td>Carrinho de Picolé Artesanal personalizado</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">×</td></tr>
+        <tr><td>Capa de cadeira personalizada com a marca</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">×</td></tr>
+        <tr><td>Sacola personalizada do evento</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">×</td></tr>
+        <tr><td>Carrinho de Pipoca Gourmet personalizado</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Box de kit lanche personalizado</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Cantinho de fotos personalizado</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Estação de recarga de celular com a marca</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
       </table>
     </div>
+
+    <div class="ativ-gallery">
+      <figure><div class="frame"><img class="cover" src="assets/ativ-fondue.png" alt="Carrinho de fondue personalizado"></div><figcaption>Carrinho de fondue, foto real de edição anterior</figcaption></figure>
+      <figure><div class="frame"><img class="cover" src="assets/ativ-picole.jpg" alt="Carrinho de picolé, edição Rocket"></div><figcaption>Carrinho de picolé, edição Rocket 2025</figcaption></figure>
+      <figure><div class="frame"><img class="cover" src="assets/ativ-brigadeiro.png" alt="Carrinho de brigadeiro personalizado"></div><figcaption>Carrinho de brigadeiro, foto real de edição anterior</figcaption></figure>
+      <figure><div class="frame"><img class="cover" src="assets/ativ-pipoca.png" alt="Carrinho de pipoca gourmet personalizado"></div><figcaption>Carrinho de pipoca gourmet, mockup de referência</figcaption></figure>
+      <figure><div class="frame"><img class="cover" src="assets/ativ-cafe.png" alt="Estação de café personalizada"></div><figcaption>Estação de café personalizada, mockup de referência</figcaption></figure>
+      <figure><div class="frame"><img class="cover" src="assets/ativ-totem.png" alt="Totem de recarga de celular com a marca"></div><figcaption>Estação/totem de recarga de celular, mockup de referência</figcaption></figure>
+      <figure><div class="frame"><img class="cover" src="assets/ativ-backdrop.png" alt="Cantinho/backdrop de fotos personalizado"></div><figcaption>Cantinho de fotos (backdrop), mockup de referência</figcaption></figure>
+      <figure><div class="frame"><img class="cover" src="assets/ativ-cadeira.png" alt="Capa de cadeira personalizada"></div><figcaption>Capa de cadeira personalizada, mockup de referência</figcaption></figure>
+      <figure><div class="frame"><img class="cover" src="assets/ativ-lanyard.png" alt="Lanyard personalizado do evento"></div><figcaption>Lanyard personalizado, mockup de referência</figcaption></figure>
+      <figure><div class="frame"><img class="cover" src="assets/ativ-kitlanche.png" alt="Box de kit lanche/almoço patrocinado"></div><figcaption>Box de kit lanche, almoço patrocinado, mockup de referência</figcaption></figure>
+      <figure><div class="frame"><img class="cover" src="assets/ativ-sacola.png" alt="Sacola personalizada do evento"></div><figcaption>Sacola do evento, mockup de referência</figcaption></figure>
+    </div>
+
     <div class="ativ-notes">
-      <p><strong>Quer propor uma ativação diferente das listadas?</strong> Ações personalizadas fora do menu podem ser avaliadas caso a caso, sujeitas à aprovação da organização.</p>
-      <p><strong>Ordem de escolha:</strong> primeiro por cota (Signature, depois Premier, depois Select), e dentro da mesma cota, por ordem de assinatura do contrato. A escolha final é definida mais próximo da data do evento.</p>
+      <p>Quer propor uma ativação diferente das listadas? Ações personalizadas fora do menu podem ser avaliadas caso a caso, sujeitas à aprovação da organização.</p>
+      <p>Ordem de escolha: primeiro por cota (Signature, depois Premier, depois Select), e dentro da mesma cota, por ordem de assinatura do contrato. A escolha final é definida mais próximo da data do evento.</p>
     </div>
   </section>
 
-  <!-- ===== EXPOSITORES / PAGAMENTO ===== -->
-  <section class="section" id="condicoes">
-    <div class="section-head">
-      <div class="eyebrow">Outras formas de participar</div>
-      <h2>Expositores e condições</h2>
-    </div>
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="k">Espaço para expositores</div>
-        <p>Empresas que desejam ter presença física no evento sem contratar uma cota de patrocínio podem participar como expositores, mediante taxa de <strong style="color:var(--text)">R$ 300</strong> referente à estrutura necessária para o espaço.</p>
-      </div>
-      <div class="info-card">
-        <div class="k">Condições de pagamento</div>
-        <ul>
-          <li>Pagamento parcelado, conforme negociação com a organização</li>
-          <li>Quitação integral até <span class="tag-pending">Prazo a definir</span></li>
-          <li>Material e brindes para a sacola devem ser enviados até 15 dias antes do evento</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTATO ===== -->
-  <section class="contato" id="contato">
-    <div class="contato-inner">
+  <!-- ===== CONTATO / FOOTER ===== -->
+  <footer class="contato" id="contato">
+    <div class="beam"></div>
+    <div class="content">
       <div class="eyebrow">Vamos conversar?</div>
-      <h2>As cotas são limitadas — e a ordem de fechamento define a ordem de escolha.</h2>
-      <p>Quanto antes sua marca confirmar presença, mais opções de ativação disponíveis. Fale com a organização do Magic Makers AO VIVO 2027 e garanta seu espaço na 5ª edição.</p>
-      <div class="contact-box">
-        <div class="txt"><b>Contato comercial</b>A inserir — canal direto com a organização do Magic Makers AO VIVO.</div>
-        <span class="tag-pending">A completar</span>
+      <h2>As cotas são limitadas.</h2>
+      <p class="sub">A prioridade de escolha de ativação segue a ordem de fechamento do contrato, quanto antes sua marca confirmar presença, mais opções disponíveis.</p>
+      <a class="cta" href="https://wa.me/5511965183613" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <div class="commercial">Contato comercial: Camila Moretti — Diretora de Marketing, Eventos e Vendas</div>
+      <div class="details">
+        <span><i>E-mail:</i> diretoria@academiadamagia.com.br</span>
+        <span><i>Telefone:</i> (11) 96518-3613</span>
       </div>
     </div>
-  </section>
-
-  <footer>
-    <div class="fwordmark">MAGIC <span class="grad-text">MAKERS</span></div>
-    <p>Cotação do dólar utilizada para conversão: R$ 5,14 (comercial). Valores em reais podem ser ajustados conforme variação cambial até o fechamento do contrato.</p>
   </footer>
 
 </body>
